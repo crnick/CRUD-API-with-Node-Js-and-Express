@@ -1,5 +1,10 @@
 import express from "express";
-import { v4 as uuidv4 } from "uuid";
+import {
+  createUser,
+  getUserById,
+  deleteUser,
+  updateUser,
+} from "../controllers/users";
 
 const router = express.Router();
 
@@ -7,50 +12,16 @@ const router = express.Router();
 let users = [];
 
 router.get("/", (req, res) => {
-  res.send("hello", users);
+  res.send("List of all users", users);
 });
 
-router.post("/", (req, res) => {
-  const users = req.body;
-  const userId = uuidv4();
-  const userWithId = { ...users, id: userId };
-  users.push(userWithId);
-  res.send("User Added successfuly");
-});
+router.post("/", createUser);
 
-router.get("/:id", (req, res) => {
-  const { id } = req.params;
-  const foundUser = users.find((user) => user.id === id);
-  res.send(`found user ${foundUser}`);
-});
+router.get("/:id", getUserById);
 
-router.delete("/:id", (req, res) => {
-  const { id } = req.params;
-  // if condition is true user is kept in array otherwise deleted
-  users = users.filter((user) => user.id !== id);
-  res.send(`user deleted `);
-});
+router.delete("/:id", deleteUser);
 
 //when you want to partially modify something or use put when all fields need to be updated
-router.patch("/:id", (req, res) => {
-  const { id } = req.params;
-  const { firstName, lastName, age } = req.body;
-
-  const user = users.find((user) => user.id === id);
-
-  if (firstName) {
-    user.firstName = firstName;
-  }
-
-  if (lastName) {
-    user.lastName = lastName;
-  }
-
-  if (age) {
-    user.age = age;
-  }
-
-  res.send(`User info has been updated`);
-});
+router.patch("/:id", updateUser);
 
 export default router;
