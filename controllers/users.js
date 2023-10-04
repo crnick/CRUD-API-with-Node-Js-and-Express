@@ -1,6 +1,9 @@
 //have all the logic for your callbaack function in this particular file
 import { v4 as uuidv4 } from "uuid";
 
+//browsers can only make get request
+let users = []; //acting as a database for storing user data
+
 export const createUser = (req, res) => {
   const users = req.body;
   const userId = uuidv4();
