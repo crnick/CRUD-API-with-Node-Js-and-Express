@@ -5,3 +5,7 @@ Nodemon package is used to immediately reflect the updates made in the file.
 # Setup
 A seperate controller folder is being created in order to abstract away the logic for the callback functions.
 The routes folder contains all the different GET, POST, DELETE, PATCH API endpoints for handling requests.
+
+# Technologies Used:
+The Rest API is build using Node JS and Express JS, uses the Uuid package for generating unique ID's. 
+
