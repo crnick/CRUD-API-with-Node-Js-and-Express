@@ -15,14 +15,14 @@ export const createUser = (req, res) => {
 export const getUserById = (req, res) => {
   const { id } = req.params;
   const foundUser = users.find((user) => user.id === id);
-  res.send(`found user ${foundUser}`);
+  res.send(`Retrieving user ${foundUser}`);
 };
 
 export const deleteUser = (req, res) => {
   const { id } = req.params;
   // if condition is true user is kept in array otherwise deleted
   users = users.filter((user) => user.id !== id);
-  res.send(`user deleted `);
+  res.send(`User is deleted`);
 };
 
 export const updateUser = (req, res) => {
