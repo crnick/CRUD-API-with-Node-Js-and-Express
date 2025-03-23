@@ -22,8 +22,7 @@ Unique ID generation for resources.
 
 
 ## Setup
-- Prerequisites
-- - Node.js and npm installed on your machine.
+- Node.js and npm installed on your machine.
 
 ## Installation
 - Clone the repository
