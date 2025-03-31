@@ -12,14 +12,9 @@ Unique ID generation for resources.
 
 ## Technologies Used
 - Node.js: A JavaScript runtime built on Chrome's V8 JavaScript engine.
-
 - Express.js: A fast, unopinionated, minimalist web framework for Node.js.
-
 - Nodemon: A utility that monitors for changes in your source code and automatically restarts the server.
-
 - UUID: A package to generate unique identifiers.
-
-
 
 ## Setup
 - Node.js and npm installed on your machine.
@@ -32,6 +27,5 @@ Unique ID generation for resources.
 - npm install
 
 ## Running the Server
-- To start the server, run:
-- npm start
+- To start the server, run npm start:
 - The server will start on http://localhost:3000 by default.
