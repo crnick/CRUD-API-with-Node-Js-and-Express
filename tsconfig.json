@@ -1,0 +1,11 @@
+{
+    "compilerOptions": {
+        "module": "NodeNext",
+        "target": "ES2022",
+        "sourceMap": true, // maps JS code back to TS code.
+        "outDir": "dist", // final JS code is compiled
+        "noEmit": true,
+        "allowImportingTsExtensions": true,
+    },
+
+}
