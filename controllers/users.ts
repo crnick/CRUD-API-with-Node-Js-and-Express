@@ -15,19 +15,22 @@ export const createUser = (req, res) => {
 export const getUserById = (req, res) => {
   const { id } = req.params;
   const foundUser = users.find((user) => user.id === id);
-  res.send(`Retrieving user ${foundUser}`);
+  res.status(200).json({message:`Found user ${foundUser}`});
 };
 
 export const deleteUser = (req, res) => {
   const { id } = req.params;
   // if condition is true user is kept in array otherwise deleted
   users = users.filter((user) => user.id !== id);
-  res.send(`User is deleted`);
+  res.status(200).json({message:"User is deleted"});
 };
 
 export const updateUser = (req, res) => {
   const { id } = req.params;
   const { firstName, lastName, age } = req.body;
+  if(!firstName || !lastName || !age){
+    res.status(400).json({error:"FirstName/ LastName / Age is required"})
+  }
 
   const user = users.find((user) => user.id === id);
 
@@ -43,5 +46,5 @@ export const updateUser = (req, res) => {
     user.age = age;
   }
 
-  res.send(`User info has been updated`);
+  res.status(200).json({message:"User info has been updated"});
 };
