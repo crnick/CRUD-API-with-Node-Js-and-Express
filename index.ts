@@ -3,8 +3,9 @@ import userRoutes from "./routes/users.ts";
 import logger from './middleware/logger.js'
 
 
+const PORT_NUMBER:number = 5000
 const app = express(); //initialize express
-const PORT = process.env.PORT;
+const PORT =  PORT_NUMBER || process.env.PORT;
 
 app.use(express.json());
 app.use(logger)
