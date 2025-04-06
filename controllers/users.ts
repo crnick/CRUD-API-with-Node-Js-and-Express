@@ -9,7 +9,7 @@ export const createUser = (req, res) => {
   const userId = uuidv4();
   const userWithId = { ...users, id: userId };
   users.push(userWithId);
-  res.send("User Added successfuly");
+  res.status(200).json({message:`User added successfully`});
 };
 
 export const getUserById = (req, res) => {
