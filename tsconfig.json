@@ -7,6 +7,4 @@
         "noEmit": true,
         "allowImportingTsExtensions": true,
     },
-    
-
 }
