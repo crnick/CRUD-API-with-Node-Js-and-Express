@@ -1,10 +1,10 @@
-import express from "express";
-import {
+const express = require("express")
+const {
   createUser,
   getUserById,
   deleteUser,
   updateUser,
-} from "../controllers/users.ts";
+} = require("../controllers/users.ts") ;
 
 const router = express.Router();
 
