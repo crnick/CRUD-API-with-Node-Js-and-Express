@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "commonjs",
   "scripts": {
-    "test": "jest --coverage --watch",
+    "test": "jest --coverage --watchAll",
     "start": "nodemon --exec node --loader ts-node/esm index.ts",
     "build": "tsc index.ts"
   },
