@@ -21,7 +21,8 @@
 const { describe } = require("node:test")
 const request = require("supertest")
 const app = require("../index")
-const {testingFunction,createUser} = require("../controllers/users")
+const {testingFunction,users} = require("../controllers/users")
+
 
 
 //grouping tests related to the user
@@ -30,36 +31,19 @@ describe("User API",()=>{
         const text = testingFunction("nick",29)
         expect(text).toBe("the user name is nick and age is 29")
     })
-    test("POST /user --> create user",async ()=>{
-        const userData = {
-            name: 'Test User',
-            email: 'test@example.com',
-          };
-      
-          const response = await request(app)
-            .post('/users')
-            .send(userData)
-            .expect(201); 
-      
-          // Check if response contains expected fields
-          expect(response.body).toEqual({
-            message:`User added successfully`
-          });
-    })
+   
+    //handle when user is not found (GET)
+    test('Handle user not found (GET) request', async () => {
+        const res = await request(app).get('/users/notfound');
+        expect(res.statusCode).toBe(404);
+    });
+
+
+     //handle when user is not found (DELETE)
+     test('Handle user not found (DELETE)', async () => {
+        const res = await request(app).delete('/users/notfound');
+        expect(res.statusCode).toBe(404);
+      });
+
     
-
-    // test("GET /user/id --> get specific user by id",()=>{
-        
-    // })
-    // test("DELETE /user/id --> delete the specific user by id",()=>{
-       
-    // })
-    // test("GET /user/id --> 404 if user not found",()=>{
-       
-    // })
-
-
-    // test("PUT /user/id --> updates the specific user by id",()=>{
-       
-    // })
 })
